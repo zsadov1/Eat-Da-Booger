@@ -1,10 +1,10 @@
 const express = require("express");
 const burger = require("../models/burger");
-const router = express.router();
+const router = express.Router();
 
 router.get("/", function(req,res) {
     burger.selectAll(function(data) {
-        res.render("index" {burger: data})
+        res.render("index" , {burger: data})
     });
 });
 
@@ -16,7 +16,7 @@ router.post("/api/burgers" , function(req,res) {
 });
 
 router.put("/api/burgers/:id", function(req,res) {
-    const condition = "id" += req.params.id;
+    const condition = req.params.id;
     burger.updateOne(condition, function(result) {
         if (result,affectedRow === 0) {
               return res.status(404). end();

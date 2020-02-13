@@ -1,7 +1,7 @@
 $(function() {
     $(".change-devoured").on("click", function(event) {
       var id = $(this).data("id");
-      var newSleep = $(this).data("newDevoured");
+      var newDevoured = $(this).data("newDevoured");
   
       var newDevourState = {
         devoured: newDevoured
@@ -30,7 +30,7 @@ $(function() {
       };
   
       // Send the POST request.
-      $.ajax("/api/burgers", {
+        ajax("/api/burgers", {
         type: "POST",
         data: newBurger
       }).then(
